@@ -10,16 +10,17 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
+  	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- <servlet-class>com.imobAchat.controller.UserServlet</servlet-class>  -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.html</url-pattern>
-		<url-pattern>*.json</url-pattern>
+		<!-- <url-pattern>*.json</url-pattern>  -->
 	</servlet-mapping>
 		
 
