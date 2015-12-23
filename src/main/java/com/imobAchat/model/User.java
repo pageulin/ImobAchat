@@ -19,6 +19,8 @@ public class User {
 	private String firstname;
 	
 	private String lastName;
+	
+	private String passWord;
 
 	public int getId() {
 		return id;
@@ -60,6 +62,16 @@ public class User {
 		this.lastName = lastName;
 	}
 	
-	
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public String toString(){
+		return "" + firstname + "\n" + lastName + "\n" + email;
+	}
 	
 }

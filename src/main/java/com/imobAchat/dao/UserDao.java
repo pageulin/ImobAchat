@@ -1,5 +1,7 @@
 package com.imobAchat.dao;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -52,6 +54,10 @@ public class UserDao {
 	public User findUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public List<User> findAll(){
+		return ur.findAll();
 	}
 
 }
