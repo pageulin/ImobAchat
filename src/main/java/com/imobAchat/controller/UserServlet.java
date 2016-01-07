@@ -50,12 +50,15 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<User> users = ud.findAll();
+		
+		/*List<User> users = ud.findAll();
 		Iterator<User> ite = users.iterator();
 		while(ite.hasNext()){
 			response.getWriter().append(ite.next().toString() + "\n\n");
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());*/
+		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward(request, response);
 	}
 
 	/**
