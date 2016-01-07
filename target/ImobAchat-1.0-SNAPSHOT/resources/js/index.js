@@ -314,3 +314,17 @@ function loadChat(){
 function loadConversation(){
 	$('#home-content').load('./conversation');	
 }
+
+function loadRegistration(){
+	$('#index-content').load('./form_registration');	
+}
+
+function loadLogin(){
+	$('#index-content').load('./form_login');	
+}
+
+function check_login(){
+	$("#mail_field_login").val();
+	$("#password_field_login").val();
+	
+}

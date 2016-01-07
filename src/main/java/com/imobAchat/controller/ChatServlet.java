@@ -30,9 +30,6 @@ public class ChatServlet extends HttpServlet {
 	/*@EJB 
 	private UserDaoLocal userDao;
     */
-	
-	@Autowired
-	private UserDao ud;
 	/**
      * @see HttpServlet#HttpServlet()
      */

@@ -30,9 +30,7 @@ public class PropertyDetailsServlet extends HttpServlet {
 	/*@EJB 
 	private UserDaoLocal userDao;
     */
-	
-	@Autowired
-	private UserDao ud;
+
 	/**
      * @see HttpServlet#HttpServlet()
      */

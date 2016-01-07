@@ -26,13 +26,11 @@ import com.imobAchat.model.User;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	//@EJB(name="UserDao")
+    
 	
-	/*@EJB 
-	private UserDaoLocal userDao;
-    */
-	
-	@Autowired
-	private UserDao ud;
+	/*@Autowired
+	private UserDao ud;*/
 	/**
      * @see HttpServlet#HttpServlet()
      */
@@ -42,7 +40,7 @@ public class UserServlet extends HttpServlet {
     }
     
     public void init(){
-    	SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext (this);
+    	//SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext (this);
     }
 
 	/**
@@ -50,15 +48,14 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		/*List<User> users = ud.findAll();
 		Iterator<User> ite = users.iterator();
 		while(ite.hasNext()){
 			response.getWriter().append(ite.next().toString() + "\n\n");
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());*/
-		
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward(request, response);
+		//response.getWriter().append(ud.findUserById(1) + "\n\n");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

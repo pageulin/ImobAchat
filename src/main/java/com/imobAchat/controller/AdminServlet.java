@@ -22,17 +22,13 @@ import com.imobAchat.model.User;
 /**
  * Servlet implementation class UserServlet
  */
-@WebServlet("/UserServlet")
+@WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
 	/*@EJB 
 	private UserDaoLocal userDao;
     */
-	
-	@Autowired
-	private UserDao ud;
 	/**
      * @see HttpServlet#HttpServlet()
      */

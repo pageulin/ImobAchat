@@ -1,7 +1,6 @@
-#Lib, class and java file
+#Lib and class file
 .jar
 .class
-.java
 
 # Windows image file caches
 Thumbs.db
@@ -46,3 +45,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/target/

@@ -15,4 +15,6 @@ public interface UserDaoLocal {
 	
 	public User findUserByEmail(String email);
 	
+	public User findUserById(int id);
+	
 }

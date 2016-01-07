@@ -168,6 +168,44 @@
 		<url-pattern>/property-details</url-pattern>
 	</servlet-mapping>
 	
+	<!-- FORM LOGIN SERVLET -->
+  	<servlet>
+		<servlet-name>FormLoginServlet</servlet-name>
+		<servlet-class>com.imobAchat.controller.FormLoginServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FormLoginServlet</servlet-name>
+		<url-pattern>/form_login</url-pattern>
+	</servlet-mapping>
+
+	<!-- FORM REGISTRATION SERVLET -->
+  	<servlet>
+		<servlet-name>FormRegistrationServlet</servlet-name>
+		<servlet-class>com.imobAchat.controller.FormRegistrationServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FormRegistrationServlet</servlet-name>
+		<url-pattern>/form_registration</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+		<!-- <url-pattern>*.json</url-pattern>  -->
+	</servlet-mapping>
+	
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

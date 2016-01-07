@@ -22,7 +22,7 @@ import com.imobAchat.model.User;
 /**
  * Servlet implementation class UserServlet
  */
-@WebServlet("/UserServlet")
+@WebServlet("/ListPropertyServlet")
 public class ListPropertyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,9 +30,6 @@ public class ListPropertyServlet extends HttpServlet {
 	/*@EJB 
 	private UserDaoLocal userDao;
     */
-	
-	@Autowired
-	private UserDao ud;
 	/**
      * @see HttpServlet#HttpServlet()
      */

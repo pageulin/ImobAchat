@@ -3,14 +3,15 @@
 
 <!DOCTYPE html>
 <html ng-app="ImobAchat">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><tiles:getAsString name="title"></tiles:getAsString></title>
-<tiles:insertAttribute name="assets"></tiles:insertAttribute>
-</head>
-<body>
-<tiles:insertAttribute name="body"></tiles:insertAttribute>
-<br/>
-<tiles:insertAttribute name="footer" ignore="true"></tiles:insertAttribute>
-</body>
+	<head>
+		<tiles:insertAttribute name="include_header" ignore="true"></tiles:insertAttribute>
+	</head>
+	
+	<tiles:insertAttribute name="header" ignore="true"></tiles:insertAttribute>
+	
+	<tiles:insertAttribute name="body" ignore="true"></tiles:insertAttribute>
+
+	<tiles:insertAttribute name="footer" ignore="true"></tiles:insertAttribute>
+
+	<tiles:insertAttribute name="include_footer" ignore="true"></tiles:insertAttribute>
 </html>
