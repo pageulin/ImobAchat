@@ -24,8 +24,6 @@ import com.imobAchat.repositories.UserRepository;
  */
 
 @Stateful
-
-//@Service
 @Transactional
 public class UserDao implements UserDaoLocal {
 
@@ -35,35 +33,16 @@ public class UserDao implements UserDaoLocal {
 	private static final String JPQL_SELECT_PAR_EMAIL = "SELECT id FROM User u WHERE u.email=:email"; 
 	private static final String PARAM_USER = "email"; 
 
-	
-	//@Autowired
-	//private UserRepository ur;
-	
-    /**
-     * Default constructor. 
-     */
     public UserDao() {
-        // TODO Auto-generated constructor stub
-    	System.out.println("userDao()");
-        /*
-         * JpaRepositoryFactory jpaRepositoryFactory=new JpaRepositoryFactory(entityManager);
-         
-        ur = jpaRepositoryFactory.getRepository(UserRepository.class);*/
         
     }
     
     public void addUser(User u){
-    	//ur.save(u);
-    	//System.out.println(u.toString());
+
     	Query requete = entityManager.createQuery("SELECT id FROM User");
     	
 		entityManager.persist(u);
 	
-    	List<Integer> users = (List<Integer>)requete.getResultList();
-    	Iterator<Integer> ite = users.iterator(); 
-    	while(ite.hasNext()){
-    		System.out.println(entityManager.find(User.class, ite.next()));
-    	}	
     }
 
 

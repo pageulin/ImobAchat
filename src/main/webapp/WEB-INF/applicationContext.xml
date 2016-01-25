@@ -17,14 +17,17 @@
 	</bean>
 	
 	<bean id="UserDao" class="com.imobAchat.dao.UserDao">
-      
    </bean>
+   
+   <bean id="AnnouncementDao" class="com.imobAchat.dao.AnnouncementDao">  </bean>
+   <bean id="MessageDao" class="com.imobAchat.dao.MessageDao">  </bean>
+   <bean id="ConversationDao" class="com.imobAchat.dao.ConversationDao">  </bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/imobAchat" />
+		<property name="url" value="jdbc:mysql://localhost:8889/imobachat" />
 		<property name="username" value="root"></property>
-		<property name="password" value=""></property>
+		<property name="password" value="root"></property>
 	</bean>
 	 
 	 	

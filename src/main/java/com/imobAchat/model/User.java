@@ -1,9 +1,15 @@
 package com.imobAchat.model;
 
+
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
+
 
 @Entity
 public class User {
@@ -11,6 +17,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	private String phone;
+	
+	private String address;
+	
+	@OneToMany
+	private List<Announcement> favoriteAnnouncements;
 	
 	private String email;
 	
@@ -71,7 +84,42 @@ public class User {
 	}
 
 	public String toString(){
-		return "" + firstname + "\n" + lastName + "\n" + email;
+		return "firstname : " + "\n" +
+				firstname + "\n" +
+				"lastname : " + "\n" + 
+				lastName + "\n" +
+				"email : " + "\n" +
+				email + "\n";
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public List<Announcement> getFavoriteAnnouncements() {
+		return favoriteAnnouncements;
+	}
+
+	public void setFavoriteAnnouncements(List<Announcement> favoriteAnnouncements) {
+		this.favoriteAnnouncements = favoriteAnnouncements;
+	}
+	
+	public void addFavoriteAnnouncement(Announcement a){
+		this.favoriteAnnouncements.add(a);
+	}
+	
+	
 	
 }
