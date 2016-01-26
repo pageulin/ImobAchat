@@ -42,7 +42,7 @@ public class AnnouncementService {
 		
 		System.out.println( aD.findByUser(u));
 		
-		//aD.delete(a);
+		aD.delete(a);
 		
 	}
 	

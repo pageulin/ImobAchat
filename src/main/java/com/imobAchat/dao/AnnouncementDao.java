@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -13,7 +14,7 @@ import javax.transaction.Transactional;
 import com.imobAchat.model.Announcement;
 import com.imobAchat.model.User;
 
-@Stateful
+@Stateless
 @Transactional
 public class AnnouncementDao implements AnnouncementDaoLocal{
 
@@ -51,7 +52,13 @@ public class AnnouncementDao implements AnnouncementDaoLocal{
 
 	@Override
 	public void delete(Announcement a) {
-		entityManager.remove(entityManager.contains(a) ? a : entityManager.merge(a));
+		if(a!=null){
+			
+			
+			entityManager.remove( entityManager.merge(a));
+			System.out.println("removed : " + a);
+			
+		}
 		
 	}
 
