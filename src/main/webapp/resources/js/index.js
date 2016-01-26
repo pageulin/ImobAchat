@@ -316,7 +316,7 @@ function loadConversation(){
 }
 
 function loadRegistration(){
-	$('#index-content').load('./form_registration');	
+	$('#index-content').load('./form_registration');
 }
 
 function loadLogin(){

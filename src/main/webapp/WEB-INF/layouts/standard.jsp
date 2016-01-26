@@ -2,7 +2,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!DOCTYPE html>
-<html ng-app="ImobAchat">
+<html>
 	<head>
 		<tiles:insertAttribute name="include_header" ignore="true"></tiles:insertAttribute>
 	</head>

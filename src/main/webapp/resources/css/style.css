@@ -263,9 +263,8 @@ h5{ // box info property
 /* OTHER */
 /* --------------------------------------------------------------------- */
 
-.inline-box{
+.inline-block{
 	display: inline-block;
-	vertical-align: top;
 }
 
 .pointer{
@@ -1494,4 +1493,31 @@ textarea{
 
 .sep-left{
 	border-left: 1px #ccc solid;
+}
+
+/* --------------------------------------------------------------------- */
+/* 	BUTTONS */
+/* --------------------------------------------------------------------- */
+
+.btn-black{
+	cursor:pointer;
+	background: rgba(0,0,0,0.2);
+	color:white;
+	border: #555;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: 'Raleway-Thin';
+}
+
+.btn-black:hover{
+	background: rgba(30,30,30,0.6);
+	color : #2cacd3;
+}
+
+.btn-text{
+	background: rgba(0,0,0,0);
+	font-family: 'Raleway-Thin';
+	cursor: pointer;
+	color: white;
+	font-style: italic;
 }
