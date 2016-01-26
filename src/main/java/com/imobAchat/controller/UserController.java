@@ -1,11 +1,14 @@
 package com.imobAchat.controller;
 
 import javax.ejb.EJB;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +20,7 @@ import com.imobAchat.dao.UserDao;
 import com.imobAchat.model.User;
 
 @Controller
+@Scope("session")
 public class UserController {
 
 	@Autowired
@@ -26,7 +30,12 @@ public class UserController {
 	private UserDao ud;
 	
 	@ModelAttribute("registration")
-	public User constructUser(){
+	public User constructRegistrationUser(){
+		return new User();
+	}
+
+	@ModelAttribute("login")
+	public User constructLoginUser(){
 		return new User();
 	}
 	
@@ -38,28 +47,53 @@ public class UserController {
 		return "userInfo";
 	}
 	
-	@RequestMapping(value = "/login", method=RequestMethod.POST)
+	@RequestMapping(value = "/registration", method=RequestMethod.POST)
 	@Transactional
-	public String registration(@ModelAttribute("registration") User user){
+	public String registration(HttpServletRequest request, @ModelAttribute("registration") User user){
 		//init.addUser(user);
 		us.addUser(user);
-		return "index";
+		
+        HttpSession session = request.getSession();
+        session.setAttribute("user",user);
+
+		return "searchProperty";
+	}
+	
+	@RequestMapping(value = "/login", method=RequestMethod.POST)
+	@Transactional
+	public String login(HttpServletRequest request, @ModelAttribute("login") User user){
+
+		us.addUser(user);
+		
+        HttpSession session = request.getSession();
+        User u = us.findUserByEmail(user.getEmail());
+        session.setAttribute("user",u);
+        if(u != null)
+        	return "redirect:searchProperty";
+        else
+        	return "login";
+	}
+
+	@RequestMapping(value = "/index", method=RequestMethod.POST)
+	@Transactional
+	public String logout(HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+
+        return "redirect:login";
+	}
+	
+	@RequestMapping("/registration")
+	public String getRegistration(Model model){
+		us.addUser(new User());
+		return "registration";
 	}
 	
 	@RequestMapping("/login")
 	public String getLogin(Model model){
 		us.addUser(new User());
 		return "login";
-	}
-	
-	@RequestMapping("/index")
-	public String getIndex(Model model){
-		return "index";
-	}
-	
-	@RequestMapping("/Admin")
-	public String getAdmin(Model model){
-		return "admin";
 	}
 	
 }

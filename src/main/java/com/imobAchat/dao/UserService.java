@@ -30,6 +30,7 @@ public class UserService {
 
 		User u = new User();
 		u.setEmail("toto@gmail.com");
+		u.setPassWord("toto");
 		u.setFirstname("tata");
 		u.setLastName("titi");
 		u.setPseudo("toto");
