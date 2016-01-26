@@ -51,7 +51,7 @@ public class AnnouncementDao implements AnnouncementDaoLocal{
 
 	@Override
 	public void delete(Announcement a) {
-		entityManager.remove(a);
+		entityManager.remove(entityManager.contains(a) ? a : entityManager.merge(a));
 		
 	}
 

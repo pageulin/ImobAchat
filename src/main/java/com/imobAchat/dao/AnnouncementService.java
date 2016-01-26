@@ -42,7 +42,7 @@ public class AnnouncementService {
 		
 		System.out.println( aD.findByUser(u));
 		
-		aD.delete(a);
+		//aD.delete(a);
 		
 	}
 	
@@ -60,6 +60,10 @@ public class AnnouncementService {
 	
 	public void deleteById(int id){
 		aD.deleteById(id);
+	}
+	
+	public void save(Announcement a){
+		aD.save(a);
 	}
 	
 }
