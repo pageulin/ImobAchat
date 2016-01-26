@@ -18,8 +18,9 @@
         <put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />   
     </definition>
 
- 	<definition name="submitProperty" extends="common">
+ 	<definition name="submitProperty" template="/WEB-INF/layouts/standard.jsp">
  		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+ 		<put-attribute name="include_header" value="/WEB-INF/layouts/include_header.jsp" />
         <put-attribute name="body" value="/WEB-INF/jsp/submit-property.jsp" />   
     </definition>
     
@@ -43,11 +44,22 @@
         <put-attribute name="body" value="/WEB-INF/jsp/conversation.jsp" />   
     </definition>
     
- 	<definition name="searchProperty" extends="common">
+ 	<definition name="searchProperty" template="/WEB-INF/layouts/standard.jsp">
+ 		<put-attribute name="include_header" value="/WEB-INF/layouts/include_header.jsp" />
  		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/jsp/search-property.jsp" />   
     </definition>
-        
+
+ 	<definition name="propertyDetails" extends="common">
+ 		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/property-details.jsp" />   
+    </definition>
+
+ 	<definition name="myAnnouncements" extends="common">
+ 		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/my-announcements.jsp" />   
+    </definition>
+            
     <!-- ADMIN FILES -->
     <definition name="admin" extends="common">
     	<put-attribute name="header" value="/WEB-INF/jsp/adminHeader.jsp" />
