@@ -12,27 +12,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.imobAchat.dao.UserDao;
-import com.imobAchat.dao.UserService;
-import com.imobAchat.model.User;
+import com.imobAchat.dao.AnnouncementDao;
+import com.imobAchat.dao.AnnouncementService;
+import com.imobAchat.model.Announcement;
 
 @Controller
 public class SubmitPropertyController {
 
 	@Autowired
-	private UserService us;
+	private AnnouncementService as;
 	
-	@EJB(name="UserDao")
-	private UserDao ud;
+	@EJB(name="AnnouncementDao")
+	private AnnouncementDao ad;
 	
 	@ModelAttribute("Announcement")
-	public User constructAnnouncement(){
-		return new User();
+	public Announcement constructAnnouncement(){
+		return new Announcement();
 	}
 	
 	@RequestMapping(value = "/submitProperty", method=RequestMethod.POST)
 	@Transactional
-	public String submitAnnouncement(@ModelAttribute("Announcement") User user){
+	public String submitAnnouncement(@ModelAttribute("Announcement") Announcement announcement){
 		System.out.println("POST submitProperty");
 		return "index";
 	}
