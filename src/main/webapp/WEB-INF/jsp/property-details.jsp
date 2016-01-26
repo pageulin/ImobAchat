@@ -6,7 +6,7 @@
 				
 		<div class="row">
 			<div class="col-md-12 margin-top-30px">
-				<center><b class="font-size-20px">Paris, France, 15 rue Victor Hugo</b> <i class="fa fa-heart-o fa-2x pink pointer"></i></center>
+				<center><b class="font-size-20px">${announcement.address}</b> <i class="fa fa-heart-o fa-2x pink pointer"></i></center>
 			</div>
 		
 			<div class="col-md-12">
@@ -22,10 +22,10 @@
 						</div>
 		
 						<div class="col-md-6 align-left">
-							<p>1000 €</p>
-							<p>120 m²</p>
-							<p>2</p>
-							<p>2</p>
+							<p>${announcement.price} €</p>
+							<p>${announcement.area} m²</p>
+							<p>${announcement.bedrooms}</p>
+							<p>${announcement.bathrooms}</p>
 						</div>
 					</div>
 		
@@ -38,8 +38,8 @@
 						</div>
 		
 						<div class="col-md-6 align-left">
-							<p>babar@gmail.com</p>
-							<p>0650126952</p>
+							<p>${announcement.owner.email}</p>
+							<p>${announcement.owner.phone}</p>
 						</div>
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 					<h3>Photo principal</h3>
 		
 					<div class="row">
-						<img class="col-md-12" src="resources/images/property/property1.jpg"/>
+						<img class="col-md-12" src="resources/images/property/${announcement.pictures[0]}"/>
 					</div>
 				</div>
 			</div>
@@ -59,12 +59,10 @@
 					<h3>Photos</h3>
 		
 					<div class="row">
-						<a target="blank" href="resources/images/property/property1.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property1.jpg" /></a>
-						<a target="blank" href="resources/images/property/property2.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property2.jpg" /></a>
-						<a target="blank" href="resources/images/property/property3.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property3.jpg" /></a>
-						<a target="blank" href="resources/images/property/property4.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property4.jpg" /></a>
-						<a target="blank" href="resources/images/property/property5.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property5.jpg" /></a>
-						<a target="blank" href="resources/images/property/property6.jpg"><img class="col-md-3 margin-top-10px" src="resources/images/property/property6.jpg" /></a>
+					
+		           		<c:forEach var="picture" items="${announcement.pictures}">
+							<a target="blank" href="resources/images/property/${picture}"><img class="col-md-3 margin-top-10px" src="resources/images/property/${picture}" /></a>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

@@ -14,13 +14,13 @@
 			            <!-- small box -->
 			            <div class="small-box bg-aqua">
 			                <div class="inner">
-			                    <h4><b>150</b></h4>
+			                    <h4><b>${nb_users}</b></h4>
 			                    <p>Utilisateurs</p>
 			                </div>
 			                <div class="icon">
 			                    <i class="fa fa-user"></i>
 			                </div>
-			                <a href="/ImobAchat/admin/users" class="pointer small-box-footer pointer">
+			                <a href="/ImobAchat/adminUsers" class="pointer small-box-footer pointer">
 			                    Visualiser <i class="fa fa-arrow-circle-right"></i>
 			                </a>
 			            </div>
@@ -29,13 +29,13 @@
 			            <!-- small box -->
 			            <div class="small-box bg-green">
 			                <div class="inner">
-			                    <h4><b>30</b></h4>
+			                    <h4><b>${nb_announcements}</b></h4>
 			                    <p>Propriétés</p>
 			                </div>
 			                <div class="icon">
 			                    <i class="fa fa-home"></i>
 			                </div>
-			                <a href="/ImobAchat/admin/properties" class="pointer small-box-footer pointer">
+			                <a href="/ImobAchat/adminProperties" class="pointer small-box-footer pointer">
 			                    Visualiser <i class="fa fa-arrow-circle-right"></i>
 			                </a>
 			            </div>

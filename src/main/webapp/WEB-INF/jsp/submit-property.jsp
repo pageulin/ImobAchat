@@ -1,5 +1,4 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 <body class="background-grid">
     
     <div id="home-content" class="row height-100pc">
@@ -18,31 +17,33 @@
 			        <h3>Localisation</h3>
 			
 			        <form:input path="address" type="text" id="gmap_search_input" placeholder="Adresse" class="form-control margin-top-10px"/>
-			        <input type="hidden" id="gmap_longitude"/>
-			        <input type="hidden" id="gmap_latitude"/>
+			        <form:input path="longitude" type="hidden" id="gmap_longitude"/>
+			        <form:input path="latitude" type="hidden" id="gmap_latitude"/>
+			        <form:input path="town" type="hidden" id="gmap_town"/>
+			        <form:input path="country" type="hidden" id="gmap_country"/>
 			
 			        <h3>Prix et surface</h3>
 			
 			        <div class="row margin-top-10px">
 			
 			        	<div class="col-md-6">
-				        	<form:input path="price" type="text" placeholder="Prix (€)" class="form-control margin-top-10px"/>
+				        	<form:input path="price" type="number" placeholder="Prix (€)" class="form-control margin-top-10px"/>
 				        </div>
 			
 				        <div class="col-md-6">
-				        	<form:input path="area" type="text" placeholder="Surface (m²)" class="form-control margin-top-10px"/>
+				        	<form:input path="area" type="number" placeholder="Surface (m²)" class="form-control margin-top-10px"/>
 				        </div>
 			
 				        <div class="col-md-6">
-				        	<form:input path="rooms" type="text" placeholder="Nombre de pièces" class="form-control margin-top-10px"/>
+				        	<form:input path="rooms" type="number" placeholder="Nombre de pièces" class="form-control margin-top-10px"/>
 				        </div>
 			
 				        <div class="col-md-6">
-				        	<form:input path="bedrooms" type="text" placeholder="Chambres" class="form-control margin-top-10px"/>
+				        	<form:input path="bedrooms" type="number" placeholder="Chambres" class="form-control margin-top-10px"/>
 				        </div>
 			
 				        <div class="col-md-6">
-				        	<form:input path="bathrooms" type="text" placeholder="Salles de bains" class="form-control margin-top-10px"/>
+				        	<form:input path="bathrooms" type="number" placeholder="Salles de bains" class="form-control margin-top-10px"/>
 				        </div>
 			
 				    </div>
@@ -57,12 +58,6 @@
 				    	<input type="file" class="col-md-6">
 				    	<input type="file" class="col-md-6">
 					</div>
-			
-					<h3>Contact</h3>
-			
-					<form:input path="mail" type="text" placeholder="Mail" class="form-control margin-top-10px"/>
-			
-					<form:input path="phone" type="text" placeholder="Téléphone" class="form-control margin-top-10px"/>
 			
 					<button type="submit" class="btn btn-info margin-top-20px">Publier</button>
 				</form:form>

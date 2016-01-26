@@ -17,5 +17,4 @@ public interface AnnouncementDaoLocal {
 	public void delete(Announcement a);
 	public void deleteById(int id );
 	
-	
 }

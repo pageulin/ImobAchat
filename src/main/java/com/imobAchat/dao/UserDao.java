@@ -1,5 +1,6 @@
 package com.imobAchat.dao;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.stereotype.Service;
 
+import com.imobAchat.model.Announcement;
 import com.imobAchat.model.User;
 import com.imobAchat.repositories.UserRepository;
 
@@ -37,24 +39,23 @@ public class UserDao implements UserDaoLocal {
         
     }
     
-    public void addUser(User u){
-
-    	Query requete = entityManager.createQuery("SELECT id FROM User");
-    	
+    public void addUser(User u){    	
 		entityManager.persist(u);
-	
     }
 
-
 	public void editUser(User u) {
-		//ur.save(u);
-		
+		entityManager.merge(u);
 	}
-
 
 	public void deleteUser(int userId) {
 		//ur.delete(userId);
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	public Collection<User> findAll(){
+		Query requete = entityManager.createNativeQuery("SELECT * FROM User" , User.class);
+		return (Collection<User>)requete.getResultList();	
 	}
 	
 	public User findUserById(int id){
@@ -74,10 +75,6 @@ public class UserDao implements UserDaoLocal {
 		else
 			return null;
 		
-	}
-	
-	public List<User> findAll(){
-		return null;// ur.findAll();
 	}
 
 }

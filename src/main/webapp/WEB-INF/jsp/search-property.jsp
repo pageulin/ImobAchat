@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <body class="background-grid">
     
@@ -159,4 +160,48 @@
 <script type="text/javascript" src="resources/js/infobox.js"></script>
 <script type="text/javascript" src="resources/js/markerclusterer.js"></script>
 <script type="text/javascript" src="resources/js/property.js"></script>
-<script type="text/javascript" src="resources/js/gmap-data.js"></script>
+
+<!--  <script type="text/javascript" src="resources/js/gmap-data.js"></script> -->
+
+<script>
+
+var nooGmapL10n = {
+
+		  "latitude": "46.227638",
+
+		  "longitude": "2.213749",
+
+		  "maxZoom_MarkerClusterer": "5",
+
+		  "zoom": "6",
+
+		  "area_unit": "sqft",
+
+		  "thousands_sep": ",",
+
+		  "decimal_sep": ".",
+
+		  "num_decimals": "0",
+
+		  "currency": "$",
+
+		  "currency_position": "left",
+
+		  "default_label": "",
+
+		  "fullscreen_label": "",
+
+		  "no_geolocation_pos": "The browser couldn't detect your position!",
+
+		  "no_geolocation_msg": "Geolocation is not supported by this browser.",
+
+		  "markers": [
+		              
+			${makers}
+		   
+			],
+
+		  "ajax_finishedMsg": "All posts displayed"
+
+		};
+</script>

@@ -8,18 +8,18 @@
 <meta content="fr" http-equiv="Content-Language"/>
 
 <!-- THEME STYLESHEETS -->
-<link rel="stylesheet" href="resources/css/bootstrap.css"/>
-<link rel="stylesheet" href="resources/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="resources/css/style.css"/>
+<link rel="stylesheet" href="<spring:url value="/resources/css/bootstrap.css"/>">
+<link rel="stylesheet" href="<spring:url value="/resources/css/font-awesome.min.css"/>">
+<link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>">
 
 <!-- THEME ACTUALITY SLIDER -->
-<link rel="stylesheet" href="resources/css/slider.css"/>
+<link rel="stylesheet" href="<spring:url value="/resources/css/slider.css"/>">
 
 <!-- GOOGLE WEB FONTS -->
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css' />
 
 <!-- THEME ADMIN -->
-<link rel="stylesheet" href="resources/css/AdminLTE.css"/>
+<link rel="stylesheet" href="<spring:url value="/resources/css/AdminLTE.css"/>">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="resources/css/style.css"/>
+<link rel="stylesheet" href="<spring:url value="/resources/css/style.css"/>">

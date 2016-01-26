@@ -19,9 +19,9 @@
     </definition>
 
  	<definition name="submitProperty" template="/WEB-INF/layouts/standard.jsp">
+        <put-attribute name="include_header" value="/WEB-INF/layouts/include_header.jsp" />
  		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
- 		<put-attribute name="include_header" value="/WEB-INF/layouts/include_header.jsp" />
-        <put-attribute name="body" value="/WEB-INF/jsp/submit-property.jsp" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/submit-property.jsp" />
     </definition>
     
  	<definition name="actuality" extends="common">

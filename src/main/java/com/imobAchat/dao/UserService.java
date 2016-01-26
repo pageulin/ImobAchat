@@ -1,11 +1,14 @@
 package com.imobAchat.dao;
 
+import java.util.Collection;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.imobAchat.model.Announcement;
 import com.imobAchat.model.User;
 
 @Service
@@ -46,6 +49,10 @@ public class UserService {
 
 	public void deleteUser(int userId) {
 		uD.deleteUser(userId);
+	}
+	
+	public Collection<User> findAll(){
+		return uD.findAll();
 	}
 
 	public User findUserByEmail(String email) {

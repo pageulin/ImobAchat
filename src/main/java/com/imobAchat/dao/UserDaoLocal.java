@@ -1,7 +1,10 @@
 package com.imobAchat.dao;
 
+import java.util.Collection;
+
 import javax.ejb.Local;
 
+import com.imobAchat.model.Announcement;
 import com.imobAchat.model.User;
 
 @Local
@@ -16,5 +19,7 @@ public interface UserDaoLocal {
 	public User findUserByEmail(String email);
 	
 	public User findUserById(int id);
+	
+	public Collection<User> findAll();
 	
 }

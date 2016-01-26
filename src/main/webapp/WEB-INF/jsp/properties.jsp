@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <body class="skin-blue">
 
     <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -15,27 +16,16 @@
 			
 								<div class="table-responsive">
 								    <!-- THE MESSAGES -->
-								    <h3>Propriétés</h3>
+								    <h3>Propri�t�s</h3>
+								    
 								    <table class="table table-mailbox">
-								        <tr class="row background-eee">
-								            <td class="col-md-4"><a href="#">Paris, France</a></td>
-								            <td class="col-md-8"><a href="#">15 rue victor Hugo</a></td>
-								        </tr>
-			
-								        <tr class="row background-eee">
-								            <td class="col-md-4"><a href="#">Bordeaux, France</a></td>
-								            <td class="col-md-8"><a href="#">50 rue de la martinique</a></td>
-								        </tr>
-			
-								        <tr class="row background-eee ">
-								            <td class="col-md-4"><a href="#">Marseille, France</a></td>
-								            <td class="col-md-8"><a href="#">12 cours louis parster</a></td>
-								        </tr>
-			
-								        <tr class="row background-eee">
-								            <td class="col-md-4"><a href="#">Rouen, France</a></td>
-								            <td class="col-md-8"><a href="#">32 boulevard général de gaulle</a></td>
-								        </tr>
+										<c:forEach var="announcement" items="${announcements}">
+								  			<tr class="row background-eee">
+									            <!-- <td class="col-md-4"><a href="#">${announcement.country}, ${announcement.town}</a></td> -->
+									            <td class="col-md-4"><a href="#">${announcement.owner.pseudo}</a></td>
+									            <td class="col-md-8"><a href="#">${announcement.address}</a></td>
+									        </tr>
+								    	</c:forEach>
 								    </table>
 								</div><!-- /.table-responsive -->
 							</div>

@@ -31,16 +31,106 @@ public class AnnouncementService {
 		Announcement a = new Announcement();
 		a.setTitle("titre test");
 		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Paris");
+		a.setAddress("15 Rue Bonaparte, Paris, France");
+		a.setLongitude(2.3344796000000088);
+		a.setLatitude(48.856205);
+		a.addPicture("property6.jpg");
 		User u = new User();
-		u.setEmail("testAnnouncement@gmail.com");
-		u.setPseudo("test announcement");
-		u.setLastName("test lastName");
-		u.setFirstname("test firstName");
+		u.setEmail("test@gmail.com");
+		u.setPseudo("test");
+		u.setLastName("lastName");
+		u.setFirstname("firstName");
 		a.setOwner(u);
 		uD.addUser(u);
 		aD.save(a);
 		
-		System.out.println( aD.findByUser(u));
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Bordeaux");
+		a.setAddress("18 Rue Judaïque, Bordeaux, France");
+		a.setLongitude(-0.5818474000000151);
+		a.setLatitude(44.84154530000001);
+		a.addPicture("property1.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Paris");
+		a.setAddress("35 Rue de Dunkerque, Paris, France");
+		a.setLongitude(2.3518020000000206);
+		a.setLatitude(48.8806403);
+		a.addPicture("property2.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Paris");
+		a.setAddress("15 Rue Bonaparte, Paris, France");
+		a.setLongitude(2.3344796000000088);
+		a.setLatitude(48.856205);
+		a.addPicture("property3.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Paris");
+		a.setAddress("64 Rue de Rivoli, Paris, France");
+		a.setLongitude(2.338296899999932);
+		a.setLatitude(48.86188729999999);
+		a.addPicture("property4.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Paris");
+		a.setAddress("15 Rue Bonaparte, Paris, France");
+		a.setLongitude(2.3344796000000088);
+		a.setLatitude(48.856205);
+		a.addPicture("property5.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Lille");
+		a.setAddress("36 Boulevard Vauban, Lille, France");
+		a.setLongitude(3.0491528000000017);
+		a.setLatitude(50.6366612);
+		a.addPicture("property6.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		a = new Announcement();
+		a.setTitle("titre test");
+		a.setDescription("description test");
+		a.setCountry("France");
+		a.setTown("Marseille");
+		a.setAddress("15 Rue Paradis, Marseille, France");
+		a.setLongitude(5.376630200000022);
+		a.setLatitude(43.293914);
+		a.addPicture("property1.jpg");
+		a.setOwner(u);
+		aD.save(a);
+		
+		//System.out.println( aD.findByUser(u));
 		
 		aD.delete(a);
 		
@@ -52,6 +142,10 @@ public class AnnouncementService {
 	
 	public Announcement findById(int id){
 		return aD.findById(id);
+	}
+	
+	public Collection<Announcement> findByUser(User user) {
+		return aD.findByUser(user);
 	}
 	
 	public void delete(Announcement a){

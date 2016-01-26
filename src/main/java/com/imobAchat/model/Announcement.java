@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Announcement {
 	private String description;
 	private String title;
 	
-	@ElementCollection(targetClass=String.class)
+	@ElementCollection(targetClass=String.class , fetch = FetchType.EAGER)
 	private Collection<String> pictures = new ArrayList<String>();
 	private String address;
 	private String country;
@@ -32,6 +33,8 @@ public class Announcement {
 	
 	private int area;
 	private int bedrooms;
+	private int bathrooms;
+
 	private int rooms = 0;
 	
 	private double price;
@@ -99,9 +102,18 @@ public class Announcement {
 	public void setBedrooms(int bedrooms) {
 		this.bedrooms = bedrooms;
 	}
+	
+	public int getBathrooms() {
+		return bathrooms;
+	}
+	public void setBathrooms(int bathrooms) {
+		this.bathrooms = bathrooms;
+	}
+
 	public int getRooms() {
 		return rooms;
 	}
+	
 	public void setRooms(int rooms) {
 		this.rooms = rooms;
 	}

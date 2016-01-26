@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/actuality.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/property-details.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/search-property.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/submit-property.jsp=UTF-8
 encoding/<project>=UTF-8
