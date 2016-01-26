@@ -48,7 +48,21 @@ public class AnnouncementDao implements AnnouncementDaoLocal{
 		}*/
 		return announcements;
 	}
+
+	@Override
+	public void delete(Announcement a) {
+		entityManager.remove(a);
+		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		entityManager.remove(entityManager.find(Announcement.class, id));
+		
+	}
 	
+	
+
 	
 	
 	

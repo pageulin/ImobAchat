@@ -1,6 +1,8 @@
 package com.imobAchat.dao;
 
 
+import java.util.Collection;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.transaction.Transactional;
@@ -40,6 +42,24 @@ public class AnnouncementService {
 		
 		System.out.println( aD.findByUser(u));
 		
+		aD.delete(a);
+		
+	}
+	
+	public Collection<Announcement> findAll(){
+		return aD.findAll();
+	}
+	
+	public Announcement findById(int id){
+		return aD.findById(id);
+	}
+	
+	public void delete(Announcement a){
+		aD.delete(a);
+	}
+	
+	public void deleteById(int id){
+		aD.deleteById(id);
 	}
 	
 }
