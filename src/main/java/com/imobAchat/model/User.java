@@ -5,21 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
+@Scope("session")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
 	private String email;
-	
 	private String pseudo;
-
 	private String firstname;
-	
 	private String lastName;
-	
 	private String passWord;
 
 	public int getId() {

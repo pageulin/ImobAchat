@@ -50,37 +50,37 @@ public final class standard_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html ng-app=\"ImobAchat\">\n");
-      out.write("\t<head>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("\t<head>\r\n");
       out.write("\t\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f0(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("\t</head>\n");
-      out.write("\t\n");
+      out.write("\r\n");
+      out.write("\t</head>\r\n");
+      out.write("\t\r\n");
       out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f1(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("\t\n");
+      out.write("\r\n");
+      out.write("\t\r\n");
       out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f2(_jspx_page_context))
         return;
-      out.write('\n');
-      out.write('\n');
-      out.write('	');
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f3(_jspx_page_context))
         return;
-      out.write('\n');
-      out.write('\n');
-      out.write('	');
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f4(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

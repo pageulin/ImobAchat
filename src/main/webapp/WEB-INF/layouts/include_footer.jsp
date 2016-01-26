@@ -21,3 +21,5 @@
 <!-- ADMIN SCRIPT -->
 <script type="text/javascript" src="resources/js/admin.js"></script>
 
+<!-- GOOGLE API -->
+<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places'></script>

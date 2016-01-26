@@ -73,6 +73,8 @@ public final class include_005ffooter_jsp extends org.apache.jasper.runtime.Http
       out.write("<!-- ADMIN SCRIPT -->\r\n");
       out.write("<script type=\"text/javascript\" src=\"resources/js/admin.js\"></script>\r\n");
       out.write("\r\n");
+      out.write("<!-- GOOGLE API -->\r\n");
+      out.write("<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places'></script>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

@@ -58,7 +58,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  \r\n");
       out.write("  <center id=\"index-content\">\r\n");
       out.write("\t ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/WEB-INF/jsp/registration.jsp", out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/WEB-INF/jsp/login.jsp", out, false);
       out.write("\r\n");
       out.write("  </center>\r\n");
       out.write("\r\n");
