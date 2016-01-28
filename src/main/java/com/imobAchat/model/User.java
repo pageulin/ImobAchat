@@ -120,6 +120,10 @@ public class User {
 		this.favoriteAnnouncements.add(a);
 	}
 	
+	public void removeFavoriteAnnouncement(Announcement a){
+		this.favoriteAnnouncements.remove(a);
+	}
+	
 	
 	
 }
