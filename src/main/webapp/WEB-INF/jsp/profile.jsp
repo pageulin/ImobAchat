@@ -36,15 +36,15 @@
 		        <!-- START NEW PASSWORD SECTION -->
 		
 		        <h3 class="margin-top-30px">Nouveau mot de passe</h3>
+			
+		        <input id='last_pass' placeholder="Ancien mot de passe" class="form-control margin-top-10px"/>
 		
-		        <input type="mail" id="last-password" placeholder="Ancien mot de passe" class="form-control margin-top-10px"/>
+		        <input id='new_pass' placeholder="Nouveau mot de passe" class="form-control margin-top-10px"/>
 		
-		        <input type="mail" id="new-password" placeholder="Nouveau mot de passe" class="form-control margin-top-10px"/>
+		        <input id='confirm' placeholder="Confirmation" class="form-control margin-top-10px"/>
 		
-		        <input type="mail" id="confirmation" placeholder="Confirmation" class="form-control margin-top-10px"/>
-		
-		        <button id="new-password-button" class="btn btn-info margin-top-10px" onclick="makeAccount()">Modifier</button>
-		
+		        <a onclick="changePassword()" class="btn btn-info margin-top-10px">Modifier</a>
+	        
 		        <!-- END NEW PASSWORD SECTION -->
 
 		        <!-- START MY ANNOUNCEMENT SECTION -->
@@ -54,10 +54,11 @@
 		        <c:forEach var="announcement" items="${announcements}">
 					<div class='white-box'>
 			            <div class='row'>
-			                <img class="col-md-4" src="resources/images/property/featured-properties6.jpg"/>
+			                <img class="col-md-4" src="resources/images/property/${announcement.pictures[0]}"/>
 			                <div class="col-md-8">
-			                    <b>${announcement.title}</b>
-			                    <label class="color-888">${announcement.description}</label>
+			                    <b>${announcement.title}</b><br/>
+			                    <label class="color-888">${announcement.description}</label><br/>
+			                    <a href="actuality/${announcement.id}"><i>Voir plus</i></a>
 			                </div>
 			            </div>
 			        </div>
@@ -70,36 +71,19 @@
 		        <!-- START FAVORITE SECTION -->
 		
 		        <h3 class="margin-top-30px">Vos annonces favorites</h3>
-		
-		        <div class='white-box'>
-		            <div class='row'>
-		                <img class="col-md-4" src="resources/images/property/featured-properties6.jpg"/>
-		                <div class="col-md-8">
-		                    <b>Appartement à bordeaux</b>
-		                    <label class="color-888">Saraceni tamen nec amici nobis umquam nec hostes optandi, ultro citroque discursantes quicquid inveniri poterat momento temporis parvi vastabant milvorum rapacium similes, qui si praedam dispexerint celsius, volatu rapiunt celeri, aut nisi impetraverint, non inmorantur.</label>
-		                </div>
-		            </div>
-		        </div>
-		
-		        <div class='white-box margin-top-20px'>
-		            <div class='row'>
-		                <img class="col-md-4" src="resources/images/property/featured-properties5.jpg"/>
-		                <div class="col-md-8">
-		                    <b>Appartement à Rouen</b>
-		                    <label class="color-888">Sed maximum est in amicitia parem esse inferiori. Saepe enim excellentiae quaedam sunt, qualis erat Scipionis in nostro, ut ita dicam, grege. Numquam se ille Philo, numquam Rupilio, numquam Mummio anteposuit, numquam inferioris ordinis amicis, Q. vero Maximum fratrem, egregium virum omnino, sibi nequaquam parem, quod is anteibat aetate, tamquam superiorem colebat suosque omnes per se posse esse ampliores volebat..</label>
-		                </div>
-		            </div>
-		        </div>
-		
-		        <div class='white-box margin-top-20px'>
-		            <div class='row'>
-		                <img class="col-md-4" src="resources/images/property/featured-properties4.jpg"/>
-		                <div class="col-md-8">
-		                    <b>Appartement à Paris</b>
-		                    <label class="color-888">Et quoniam apud eos ut in capite mundi morborum acerbitates celsius dominantur, ad quos vel sedandos omnis professio medendi torpescit, excogitatum est adminiculum sospitale nequi amicum perferentem similia videat, additumque est cautionibus paucis remedium aliud satis validum, ut famulos percontatum missos quem ad modum valeant noti hac aegritudine colligati, non ante recipiant domum quam lavacro purgaverint corpus. ita etiam alienis oculis visa metuitur labes.</label>
-		                </div>
-		            </div>
-		        </div>
+		        
+		        <c:forEach var="announcement" items="${sessionScope.user.favoriteAnnouncements}">
+					<div class='white-box margin-top-10px'>
+			            <div class='row'>
+			                <img class="col-md-4" src="resources/images/property/${announcement.pictures[0]}"/>
+			                <div class="col-md-8">
+			                    <b>${announcement.title}</b><br/>
+			                    <label class="color-888">${announcement.description}</label><br/>
+			                    <a href="actuality/${announcement.id}"><i>Voir plus</i></a>
+			                </div>
+			            </div>
+			        </div>
+		    	</c:forEach>
 		
 		        <!-- END FAVORITE SECTION -->
 		
@@ -109,3 +93,8 @@
 		</div>
 </body>
 		
+<script>
+	function changePassword(){
+		document.location.href='updatePassword/' + $('#last_pass').val() + '/' + $('#new_pass').val() + '/' + $('#confirm').val();
+	}
+</script>

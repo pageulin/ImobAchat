@@ -41,9 +41,7 @@ public class UserController {
 	
 	@RequestMapping("/userInfo")
 	public String getInfoOnUser(Model model){
-		System.out.println(ud.findUserById(1));
 		model.addAttribute("user", 1);
-		System.out.println(ud.findUserByEmail("toto@gmail.com"));
 		return "userInfo";
 	}
 	
@@ -63,15 +61,17 @@ public class UserController {
 	@Transactional
 	public String login(HttpServletRequest request, @ModelAttribute("login") User user){
 
-		us.addUser(user);
+		//us.addUser(user);
 		
         HttpSession session = request.getSession();
         User u = us.findUserByEmail(user.getEmail());
-        session.setAttribute("user",u);
-        if(u != null)
-        	return "redirect:searchProperty";
-        else
-        	return "login";
+        
+        if(u != null && u.getPassWord().equals(user.getPassWord())){
+	        session.setAttribute("user",u);
+	        return "redirect:searchProperty";
+        }
+        
+        return "login";
 	}
 
 	@RequestMapping(value = "/index", method=RequestMethod.POST)

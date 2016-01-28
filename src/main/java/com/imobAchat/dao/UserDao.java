@@ -39,7 +39,8 @@ public class UserDao implements UserDaoLocal {
         
     }
     
-    public void addUser(User u){    	
+    public void addUser(User u){  
+    	System.out.println("add : " + u);
 		entityManager.persist(u);
     }
 
@@ -70,7 +71,7 @@ public class UserDao implements UserDaoLocal {
 		Query requete = entityManager.createQuery(JPQL_SELECT_PAR_EMAIL); 
 		requete.setParameter(PARAM_USER, email); 
 		List<Integer> id_users = (List<Integer>)requete.getResultList();
-		if(id_users != null)
+		if(id_users != null && id_users.size() > 0)
 			return entityManager.find(User.class, id_users.get(0));
 		else
 			return null;

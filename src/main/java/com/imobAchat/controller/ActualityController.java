@@ -48,8 +48,10 @@ public class ActualityController {
 		boolean isFavorite = false;
 		int i=0;
 		while(i<l.length && isFavorite == false){
-			if(((Announcement)l[i]).getId() == announcement_id)
+			if(((Announcement)l[i]).getId() == announcement_id){
 				isFavorite = true;
+				System.out.println("id find : " + ((Announcement)l[i]).getId());
+			}
 			 ++i;
 		}
 		return isFavorite;
@@ -86,15 +88,10 @@ public class ActualityController {
 		HttpSession session = request.getSession();
 		User u = (User) session.getAttribute("user"); // we fetch the current user 
 		Announcement a = as.findById(id); // we fetch the announcement selected 
-		System.out.println("|" + cmd + "|");
-		if(cmd.equals("addFavorite")){
+		if(cmd.equals("addFavorite"))
 			u.addFavoriteAnnouncement(a); //we add the announcment to the favorit announcment list
-			System.out.println("add");
-		}
-		else{
-			u.removeFavoriteAnnouncement(a); //we remove the announcment to the favorit announcment list
-			System.out.println("remove");
-		}
+		else
+			u.removeFavoriteAnnouncement(a.getId()); //we remove the announcment to the favorit announcment list
 		us.editUser(u); // we save in data base the user updated
 		session.setAttribute("user",u); // we save in session variable the user updated
 		

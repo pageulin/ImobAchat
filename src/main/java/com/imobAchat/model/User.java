@@ -80,6 +80,7 @@ public class User {
 	}
 
 	public void setPassWord(String passWord) {
+		System.out.println("set pass : " + passWord);
 		this.passWord = passWord;
 	}
 
@@ -89,7 +90,9 @@ public class User {
 				"lastname : " + "\n" + 
 				lastName + "\n" +
 				"email : " + "\n" +
-				email + "\n";
+				email + "\n" +
+				"password : " + "\n" +
+				passWord + "\n";
 	}
 
 	public String getPhone() {
@@ -120,8 +123,11 @@ public class User {
 		this.favoriteAnnouncements.add(a);
 	}
 	
-	public void removeFavoriteAnnouncement(Announcement a){
-		this.favoriteAnnouncements.remove(a);
+	public void removeFavoriteAnnouncement(int id){
+		for(int i=0; i< favoriteAnnouncements.size(); ++i){
+			if(id == favoriteAnnouncements.get(i).getId())
+				favoriteAnnouncements.remove(favoriteAnnouncements.get(i));
+		}
 	}
 	
 	

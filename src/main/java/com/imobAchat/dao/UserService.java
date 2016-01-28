@@ -32,13 +32,14 @@ public class UserService {
 	public void init(){
 
 		User u = new User();
-		u.setEmail("toto@gmail.com");
-		u.setPassWord("toto");
-		u.setFirstname("tata");
+		u.setEmail("titi@gmail.com");
+		u.setPassWord("titi");
+		u.setFirstname("titi");
 		u.setLastName("titi");
-		u.setPseudo("toto");
+		u.setPseudo("titi");
 		
 		uD.addUser(u);
+		System.out.println(u);
 		//System.out.println(uD.findUserByEmail("a").getEmail());
 	}
 

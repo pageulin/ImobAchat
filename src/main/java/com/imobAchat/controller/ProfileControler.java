@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -61,4 +62,31 @@ public class ProfileControler {
 		return "profile";
 	}
 
+	@RequestMapping(value = "/updatePassword/{last_pass}/{new_pass}/{confirm}")
+	@Transactional
+	public String updatePassword(HttpServletRequest request, @PathVariable("last_pass") String last_pass, @PathVariable("new_pass") String new_pass, @PathVariable("confirm") String confirm){
+		HttpSession session = request.getSession();
+		com.imobAchat.model.User me = (com.imobAchat.model.User) session.getAttribute("user");
+		
+		System.out.println("pass :" + last_pass);
+		System.out.println("current_pass : " + me.getPassWord());
+		if(last_pass.equals(me.getPassWord())){
+			if(new_pass.equals(confirm)){
+				
+				me.setPassWord(new_pass);
+				
+				session.setAttribute("user", me);
+				
+				System.out.println(me);
+				us.editUser(me);
+			}
+			else
+				System.out.println("La confirmation n'est pas correct");
+		}
+		else
+			System.out.println("Le mot de passe n'est pas correct");
+		
+		return "redirect:../../../profile";
+	}
+	
 }
