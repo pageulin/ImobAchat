@@ -1,15 +1,44 @@
 package com.imobAchat.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Search {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private int bedrooms;
 	private int bathrooms;
 	private int min_area;
 	private int max_area;
 	private int min_price;
 	private int max_price;
+	private String country;
+	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getTown() {
+		return town;
+	}
+	public void setTown(String town) {
+		this.town = town;
+	}
+	private String town;
 	
 	public int getBedrooms() {
 		return bedrooms;

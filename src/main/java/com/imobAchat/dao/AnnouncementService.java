@@ -31,6 +31,10 @@ public class AnnouncementService {
 		Announcement a = new Announcement();
 		a.setTitle("titre test");
 		a.setDescription("description test");
+		a.setBathrooms(1);
+		a.setBedrooms(1);
+		a.setArea(50);
+		a.setPrice(100000);
 		a.setCountry("France");
 		a.setTown("Paris");
 		a.setAddress("15 Rue Bonaparte, Paris, France");
@@ -51,6 +55,10 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Bordeaux");
+		a.setBathrooms(1);
+		a.setBedrooms(1);
+		a.setArea(75);
+		a.setPrice(50000);
 		a.setAddress("18 Rue Judaïque, Bordeaux, France");
 		a.setLongitude(-0.5818474000000151);
 		a.setLatitude(44.84154530000001);
@@ -63,6 +71,10 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Paris");
+		a.setBathrooms(1);
+		a.setBedrooms(1);
+		a.setArea(20);
+		a.setPrice(8000);
 		a.setAddress("35 Rue de Dunkerque, Paris, France");
 		a.setLongitude(2.3518020000000206);
 		a.setLatitude(48.8806403);
@@ -75,6 +87,10 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Paris");
+		a.setBathrooms(2);
+		a.setBedrooms(2);
+		a.setArea(82);
+		a.setPrice(60000);
 		a.setAddress("15 Rue Bonaparte, Paris, France");
 		a.setLongitude(2.3344796000000088);
 		a.setLatitude(48.856205);
@@ -87,6 +103,10 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Paris");
+		a.setBathrooms(1);
+		a.setBedrooms(1);
+		a.setArea(5);
+		a.setPrice(1000000);
 		a.setAddress("64 Rue de Rivoli, Paris, France");
 		a.setLongitude(2.338296899999932);
 		a.setLatitude(48.86188729999999);
@@ -99,6 +119,10 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Paris");
+		a.setBathrooms(1);
+		a.setBedrooms(2);
+		a.setArea(500);
+		a.setPrice(17);
 		a.setAddress("15 Rue Bonaparte, Paris, France");
 		a.setLongitude(2.3344796000000088);
 		a.setLatitude(48.856205);
@@ -111,25 +135,17 @@ public class AnnouncementService {
 		a.setDescription("description test");
 		a.setCountry("France");
 		a.setTown("Lille");
+		a.setBathrooms(1);
+		a.setBedrooms(1);
+		a.setArea(580);
+		a.setPrice(1000000);
 		a.setAddress("36 Boulevard Vauban, Lille, France");
 		a.setLongitude(3.0491528000000017);
 		a.setLatitude(50.6366612);
 		a.addPicture("property6.jpg");
 		a.setOwner(u);
 		aD.save(a);
-		
-		a = new Announcement();
-		a.setTitle("titre test");
-		a.setDescription("description test");
-		a.setCountry("France");
-		a.setTown("Marseille");
-		a.setAddress("15 Rue Paradis, Marseille, France");
-		a.setLongitude(5.376630200000022);
-		a.setLatitude(43.293914);
-		a.addPicture("property1.jpg");
-		a.setOwner(u);
-		aD.save(a);
-		
+	
 		//System.out.println( aD.findByUser(u));
 		
 		aD.delete(a);

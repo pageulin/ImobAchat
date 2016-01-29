@@ -52,6 +52,7 @@ public class ProfileControler {
 		me.setEmail(user.getEmail());
 		me.setPseudo(user.getPseudo());
 		me.setPhone(user.getPhone());
+		me.setAddress(user.getAddress());
 		
 		session.setAttribute("user", me);
 		

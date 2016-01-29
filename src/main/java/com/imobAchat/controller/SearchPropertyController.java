@@ -1,5 +1,6 @@
 package com.imobAchat.controller;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +29,7 @@ public class SearchPropertyController {
 		return new Search();
 	}
 
-	@RequestMapping("/searchProperty")
-	public String searchProperty(HttpServletRequest request, Model model){
-		Collection<Announcement> announcements = as.findAll();
+	public String createStringMakers(Collection<Announcement> announcements){
 		
 		String makers = "";
 		
@@ -68,8 +67,14 @@ public class SearchPropertyController {
 
         			  "'icon': 'resources/images/icon/marker-icon-coop.png' }";
         }
-
-    	
+        
+        return makers;
+	}
+	
+	@RequestMapping("/searchProperty")
+	public String searchProperty(HttpServletRequest request, Model model){
+		Collection<Announcement> announcements = as.findAll();
+		String makers = createStringMakers(announcements);
         request.setAttribute("makers", makers);
 		return "searchProperty";
 	}
@@ -77,8 +82,24 @@ public class SearchPropertyController {
 	@RequestMapping(value = "/Search", method=RequestMethod.POST)
 	public String Search(HttpServletRequest request,  @ModelAttribute("Search") Search s){
 		System.out.println("Filter");
-		System.out.println(s.getBathrooms()  + " , " + s.getBedrooms());
+		Collection<Announcement> announcements = as.findAll();
+		
+		System.out.println("country search" + s.getCountry());
+		ArrayList<Announcement> announcements_filter = new ArrayList<Announcement>();
+        for(Announcement announcement : announcements){
+        	if(announcement.getBedrooms() == s.getBedrooms() &&
+        	   announcement.getBathrooms() == s.getBathrooms() && 
+        	   announcement.getPrice() >= s.getMin_price() &&
+        	   announcement.getPrice() <= s.getMax_price() &&
+        	   announcement.getArea() >= s.getMin_area() &&
+        	   announcement.getArea() <= s.getMax_area() &&
+        	   s.getCountry().equals("") || announcement.getCountry().equalsIgnoreCase(s.getCountry())){
+        		announcements_filter.add(announcement);
+        	}
+        }
+		
+		String makers = createStringMakers(announcements_filter);
+        request.setAttribute("makers", makers);
 		return "searchProperty";
 	}
-
 }

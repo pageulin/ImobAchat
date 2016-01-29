@@ -6,7 +6,7 @@
 		<div class="row">
 		    <div class="col-md-offset-3 col-md-6 margin-top-30px">
 		
-				<form:form commandName="submitProperty">
+				<form:form commandName="submitProperty" enctype="multipart/form-data" method="POST">
 					
 			        <h3>Titre</h3>
 			
@@ -16,34 +16,45 @@
 			
 			        <h3>Localisation</h3>
 			
+					<div class="row">
+						<div class="col-md-6">
+			        		<form:input path="country" type="text" placeholder="pays" class="form-control" id="gmap_country"/>
+			        	</div>
+						<div class="col-md-6">
+			        		<form:input path="town" type="text" placeholder="ville" class="form-control" id="gmap_town"/>
+			        	</div>
+			        </div>
 			        <form:input path="address" type="text" id="gmap_search_input" placeholder="Adresse" class="form-control margin-top-10px"/>
 			        <form:input path="longitude" type="hidden" id="gmap_longitude"/>
 			        <form:input path="latitude" type="hidden" id="gmap_latitude"/>
-			        <form:input path="town" type="hidden" id="gmap_town"/>
-			        <form:input path="country" type="hidden" id="gmap_country"/>
 			
 			        <h3>Prix et surface</h3>
 			
 			        <div class="row margin-top-10px">
 			
-			        	<div class="col-md-6">
-				        	<form:input path="price" type="number" placeholder="Prix (€)" class="form-control margin-top-10px"/>
+			        	<div class="col-md-6 margin-top-10px">
+			        		<label>Prix (€)</label>
+				        	<form:input path="price" type="number" class="form-control"/>
+				        </div>
+			
+				        <div class="col-md-6 margin-top-10px">
+				        	<label>Surface (m²)</label>
+				        	<form:input path="area" type="number" class="form-control"/>
+				        </div>
+			
+				        <div class="col-md-6 margin-top-10px">
+				        	<label>Nombre de pièces</label>
+				        	<form:input path="rooms" type="number" class="form-control"/>
+				        </div>
+			
+				        <div class="col-md-6 margin-top-10px">
+				        	<label>Chambres</label>
+				        	<form:input path="bedrooms" type="number" class="form-control"/>
 				        </div>
 			
 				        <div class="col-md-6">
-				        	<form:input path="area" type="number" placeholder="Surface (m²)" class="form-control margin-top-10px"/>
-				        </div>
-			
-				        <div class="col-md-6">
-				        	<form:input path="rooms" type="number" placeholder="Nombre de pièces" class="form-control margin-top-10px"/>
-				        </div>
-			
-				        <div class="col-md-6">
-				        	<form:input path="bedrooms" type="number" placeholder="Chambres" class="form-control margin-top-10px"/>
-				        </div>
-			
-				        <div class="col-md-6">
-				        	<form:input path="bathrooms" type="number" placeholder="Salles de bains" class="form-control margin-top-10px"/>
+				        	<label>Salles de bains</label>
+				        	<form:input path="bathrooms" type="number" class="form-control"/>
 				        </div>
 			
 				    </div>
@@ -51,12 +62,12 @@
 				    <h3>Images</h3>
 			
 				    <div class="row margin-top-10px">
-				    	<input type="file" name="file1" class="col-md-6">
-				    	<input type="file" name="file2" class="col-md-6">
-				    	<input type="file" name="file3" class="col-md-6">
-				    	<input type="file" name="file4" class="col-md-6">
-				    	<input type="file" name="file5" class="col-md-6">
-				    	<input type="file" name="file6" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
+				    	<input type="file" name="file" class="col-md-6">
 					</div>
 			
 					<button type="submit" class="btn btn-info margin-top-20px">Publier</button>

@@ -14,6 +14,7 @@
 		          <div class="gmap-search">
 		            <input placeholder="Search your map" type="text" autocomplete="off" id="gmap_search_input">
 		          </div>
+		          
 		          <div class="gmap-control">
 		            <a class="gmap-mylocation" href="#"><i class="fa fa-map-marker"></i>My Location</a>
 		            <a class="gmap-full" href="#"><i class="fa fa-expand"></i></a>
@@ -38,15 +39,20 @@
 		            <div class="container">
 		              <div class="gsearch-wrap">
 		                <!-- <h3 class="gsearch-title"><i class="fa fa-search"></i><span>SEARCH FOR PROPERTY</span></h3> -->
-		                <form:form commandName="Search" class="gsearchform" role="search"  method="POST">
+		                <form:form commandName="Search" class="gsearchform" action="Search">
 				
 		                  <div class="gsearch-content">
 		                    <div class="gsearch-field">
-		
+		                    
+			                    <div class="form-group">
+			                    	<label>Pays</label>
+			                    	<form:input path="country" class="inline-block form-control" value=""/>
+			                    </div>
+			
 		                      <div class="form-group gbed">
+		                        <label>Nombre de chambres</label>
 		                        <div class="label-select">
 		                          <form:select path="bedrooms" class="form-control">
-		                            <option>Nb. Chambres</option>
 		                            <option>1</option>
 		                            <option>2</option>
 		                            <option>3</option>
@@ -57,9 +63,9 @@
 		                      </div>
 		
 		                      <div class="form-group gbath">
+		                        <label>Nombre de salle de bains</label>
 		                        <div class="label-select">
 		                          <form:select path="bathrooms" class="form-control">
-		                            <option>Nb. Salles de bains</option>
 		                            <option>1</option>
 		                            <option>2</option>
 		                            <option>3</option>
@@ -68,7 +74,7 @@
 		                        </div>
 		                      </div>
 		
-		                      <div class="form-group gprice">
+		                      <!--  <div class="form-group gprice">
 		                        <span class="gprice-label">Price</span>
 		                        <div class="gslider-range gprice-slider-range"></div>
 		                        <span class="gslider-range-value gprice-slider-range-value-min"></span>
@@ -81,6 +87,20 @@
 		                        <span class="gslider-range-value garea-slider-range-value-min"></span>
 		                        <span class="gslider-range-value garea-slider-range-value-max"></span>
 		                      </div>
+		                    </div> -->
+		                    
+		                    <div class="form-group">
+		                    	<label>Prix minimum (€)</label>
+		                    	<form:input path="min_price" class="inline-block form-control" type="number" value=""/>
+		                    	<label>Prix maximum (€)</label>
+		                    	<form:input path="max_price" class="inline-block form-control" type="number" value=""/>
+		                    </div>
+		                    
+		                    <div class="form-group">
+		                    	<label>Surface minimum (m²)</label>
+		                    	<form:input path="min_area" class="inline-block form-control" type="number" value=""/>
+		                    	<label>Surface maximum (m²)</label>
+		                    	<form:input path="max_area" class="inline-block form-control" type="number" value=""/>
 		                    </div>
 		
 		                    <div class="gsearch-action">

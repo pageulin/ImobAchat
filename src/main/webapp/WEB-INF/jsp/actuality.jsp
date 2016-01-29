@@ -29,7 +29,7 @@
 		            		<div class="property-row">
 		            	</c:if>
 		            	
-						<article class="hentry has-featured">
+						<article class="hentry has-featured col-md-6">
 		                  <div class="property-featured">
 		                    <a class="content-thumb" href="propertyDetails">
 		                      <img src="resources/images/property/${announcement.pictures[0]}" class="attachment-property-thumb" alt="" />

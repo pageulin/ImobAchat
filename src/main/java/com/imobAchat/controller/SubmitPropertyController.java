@@ -1,11 +1,16 @@
 package com.imobAchat.controller;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.imobAchat.dao.AnnouncementService;
 import com.imobAchat.model.Announcement;
 
@@ -25,44 +33,57 @@ public class SubmitPropertyController {
 	@Autowired
 	private AnnouncementService as;
 	
-	private static final String SAVE_DIR = "resources/images/property";
+    @Autowired
+    ServletContext context;
 	
+	//private static final String SAVE_DIR = "resources" + File.separator + "images " + File.separator + " property";
+	private static final String SAVE_DIR = "src" + File.separator + "main" + File.separator + "webapp" + File.separator + "resources" + File.separator + "images" + File.separator + "property";
+
 	@ModelAttribute("submitProperty")
 	public Announcement constructAnnouncement(){
 		return new Announcement();
 	}
 	
+	public void saveFile(MultipartFile file, String name){
+        try {
+            byte[] bytes = file.getBytes();
+            String path = SAVE_DIR + File.separator + name;
+            System.out.println(path);
+            BufferedOutputStream stream =
+                    new BufferedOutputStream(new FileOutputStream(new File(path)));
+            stream.write(bytes);
+            stream.close();
+            System.out.println("You successfully uploaded " + name + "!");
+        } catch (Exception e){
+            System.out.println("You failed to upload " + name + " => " + e.getMessage());
+        }
+    }
+	
 	@RequestMapping(value = "/submitProperty", method=RequestMethod.POST)
 	@Transactional
-	public String submitProperty(HttpServletRequest request, @ModelAttribute("submitProperty") Announcement announcement) throws IOException, ServletException{
+	public String submitProperty(HttpServletRequest request, 
+								 @ModelAttribute("submitProperty") Announcement announcement,
+								 @RequestParam("file") MultipartFile[] files) throws IOException, ServletException{
+		
 		System.out.println("POST submitProperty");
 		HttpSession session = request.getSession();
 		com.imobAchat.model.User user = (com.imobAchat.model.User) session.getAttribute("user");
 		announcement.setOwner(user);
 		
-        /* appPath = request.getServletContext().getRealPath("");
-        String savePath = appPath + File.separator + SAVE_DIR;
-         
-        File fileSaveDir = new File(savePath);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdir();
-        }
-         
-        String fileName;
-        int cpt = 0;
-        for (Part part : request.getParts()) {
-            //String fileName = extractFileName(part);
-        	fileName = "property_" + user.getId() + "_" + announcement.getId() + "_" + cpt + ".jpg";
-        	System.out.println(fileName);
-            part.write(savePath + File.separator + fileName);
-            announcement.addPicture(fileName);
-            cpt++;
-        }*/
+		int cpt = 0;
+		for(MultipartFile file : files){
+			if (!file.isEmpty()) {
+				String fileName = "property_" + user.getId() + "_" + cpt + ".jpg";
+				saveFile(file,fileName);
+				announcement.addPicture(fileName);
+				cpt++;
+			}
+		}
 		
 		as.save(announcement);
 
-		System.out.println(announcement);
-		return "searchProperty";
+		System.out.println("return");
+		return "redirect:searchProperty";
 	}
 
 	@RequestMapping("/submitProperty")

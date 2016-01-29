@@ -1,11 +1,10 @@
 package com.imobAchat.controller;
 
+import java.util.*;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
-import javax.ws.rs.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,14 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.imobAchat.dao.AnnouncementService;
 import com.imobAchat.dao.UserService;
 import com.imobAchat.model.Announcement;
 import com.imobAchat.model.User;
-
-import antlr.collections.List;
 
 @Controller
 public class ActualityController {
@@ -39,6 +34,7 @@ public class ActualityController {
 	@RequestMapping("/actuality")
 	public String getLogin(HttpServletRequest request, Model model){
 		Collection<Announcement> announcements = as.findAll();
+		Collections.reverse((java.util.List<?>) announcements);
 		request.setAttribute("announcements", announcements);
 		return "actuality";
 	}
@@ -95,14 +91,14 @@ public class ActualityController {
 		us.editUser(u); // we save in data base the user updated
 		session.setAttribute("user",u); // we save in session variable the user updated
 		
-		request.setAttribute("announcement", a);
+		//request.setAttribute("announcement", a);
 		session.setAttribute("announcement", a);
 		
 		session.setAttribute("id", id);
 		
 		boolean isFavorite = isFavorite(u,id);
 		
-		request.setAttribute("isFavorite", isFavorite);
+		//request.setAttribute("isFavorite", isFavorite);
 		session.setAttribute("isFavorite", isFavorite);
 		
 		return "redirect:../../propertyDetails";

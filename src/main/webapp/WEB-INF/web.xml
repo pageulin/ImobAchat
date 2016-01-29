@@ -14,14 +14,21 @@
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
+		
+		 <!-- <multipart-config>
+		    <location>/resources/images/property</location>
+		    <max-file-size>20848820</max-file-size>
+		    <max-request-size>418018841</max-request-size>
+		    <file-size-threshold>1048576</file-size-threshold>
+		</multipart-config> -->
 	</servlet>
+	
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 		<!-- <url-pattern>*.json</url-pattern>  -->
 	</servlet-mapping>
-	
 	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
