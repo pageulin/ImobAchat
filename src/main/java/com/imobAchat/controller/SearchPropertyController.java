@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.imobAchat.dao.AnnouncementService;
 import com.imobAchat.model.Announcement;
+import com.imobAchat.model.Search;
 
 import antlr.collections.List;
 
@@ -20,8 +23,13 @@ public class SearchPropertyController {
 	@Autowired
 	private AnnouncementService as;
 	
+	@ModelAttribute("Search")
+	public Search constructSearch(){
+		return new Search();
+	}
+
 	@RequestMapping("/searchProperty")
-	public String getLogin(HttpServletRequest request, Model model){
+	public String searchProperty(HttpServletRequest request, Model model){
 		Collection<Announcement> announcements = as.findAll();
 		
 		String makers = "";
@@ -61,7 +69,16 @@ public class SearchPropertyController {
         			  "'icon': 'resources/images/icon/marker-icon-coop.png' }";
         }
 
-		request.setAttribute("makers", makers);
+    	
+        request.setAttribute("makers", makers);
 		return "searchProperty";
 	}
+
+	@RequestMapping(value = "/Search", method=RequestMethod.POST)
+	public String Search(HttpServletRequest request,  @ModelAttribute("Search") Search s){
+		System.out.println("Filter");
+		System.out.println(s.getBathrooms()  + " , " + s.getBedrooms());
+		return "searchProperty";
+	}
+
 }

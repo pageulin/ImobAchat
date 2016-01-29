@@ -10,7 +10,7 @@
 		<div id="login_section">
 		  <div id="mail_section" class="white-box width-25pc margin-top-30px">
 		    <form:input path="email" type="text" id="mail_field_login" placeholder="Adresse mail" class="form-control margin-top-30px"/>
-		    <form:input path="passWord" id="password_field_login" placeholder="Mot de passe" class="form-control margin-top-30px"/>
+		    <form:input path="passWord" type="password" id="password_field_login" placeholder="Mot de passe" class="form-control margin-top-30px"/>
 		    
 		    <!-- <h3 id="error_mail_login" class="red display-none"><i class="fa fa-warning"></i> Adresse mail inconnu.</h3> -->
 		    <!-- <h3 id="invalid_mail_login" class="red display-none"><i class="fa fa-warning"></i> Adresse mail invalide.</h3> -->

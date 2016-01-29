@@ -66,7 +66,7 @@ public class UserController {
         HttpSession session = request.getSession();
         User u = us.findUserByEmail(user.getEmail());
         
-        if(u != null && u.getPassWord().equals(user.getPassWord())){
+        if(u != null && user != null && u.getPassWord().equals(user.getPassWord())){
 	        session.setAttribute("user",u);
 	        return "redirect:searchProperty";
         }

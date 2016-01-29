@@ -51,12 +51,12 @@
 				    <h3>Images</h3>
 			
 				    <div class="row margin-top-10px">
-				    	<input type="file" class="col-md-6">
-				    	<input type="file" class="col-md-6">
-				    	<input type="file" class="col-md-6">
-				    	<input type="file" class="col-md-6">
-				    	<input type="file" class="col-md-6">
-				    	<input type="file" class="col-md-6">
+				    	<input type="file" name="file1" class="col-md-6">
+				    	<input type="file" name="file2" class="col-md-6">
+				    	<input type="file" name="file3" class="col-md-6">
+				    	<input type="file" name="file4" class="col-md-6">
+				    	<input type="file" name="file5" class="col-md-6">
+				    	<input type="file" name="file6" class="col-md-6">
 					</div>
 			
 					<button type="submit" class="btn btn-info margin-top-20px">Publier</button>

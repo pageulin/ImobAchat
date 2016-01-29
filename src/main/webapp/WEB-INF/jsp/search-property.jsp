@@ -38,79 +38,33 @@
 		            <div class="container">
 		              <div class="gsearch-wrap">
 		                <!-- <h3 class="gsearch-title"><i class="fa fa-search"></i><span>SEARCH FOR PROPERTY</span></h3> -->
-		                <form class="gsearchform" method="get" role="search">
+		                <form:form commandName="Search" class="gsearchform" role="search"  method="POST">
+				
 		                  <div class="gsearch-content">
 		                    <div class="gsearch-field">
-		                      
-		                      <!-- <div class="form-group glocation">
-		                        <div class="label-select">
-		                          <select class="form-control">
-		                            <option>All Locations</option>
-		                            <option>New Jersey</option>
-		                            <option>New York</option>
-		                          </select>
-		                        </div>
-		                      </div>
-		
-		                      <div class="form-group gsub-location">
-		                        <div class="label-select">
-		                          <select class="form-control">
-		                            <option>All Sub-locations</option>
-		                            <option>Central New York</option>
-		                            <option>GreenVille</option>
-		                            <option>Long Island</option>
-		                            <option>New York City</option>
-		                            <option>West Side</option>
-		                          </select>
-		                        </div>
-		                      </div>
-		
-		                      <div class="form-group gstatus">
-		                        <div class="label-select">
-		                          <select class="form-control">
-		                          <option>All Status</option>
-		                          <option>Open house</option>
-		                          <option>Rent</option>
-		                          <option>Sale</option>
-		                          <option>Sold</option>
-		                        </select>
-		                        </div>
-		                      </div>
-		
-		                      <div class="form-group gtype">
-		                        <div class="label-select">
-		                          <select class="form-control">
-		                            <option>All Type </option>
-		                            <option>Apartment</option>
-		                            <option>Co-op</option>
-		                            <option>Condo</option>
-		                            <option>Single Family Home</option>
-		                          </select>
-		                        </div>
-		                      </div> -->
 		
 		                      <div class="form-group gbed">
 		                        <div class="label-select">
-		                          <select class="form-control">
+		                          <form:select path="bedrooms" class="form-control">
 		                            <option>Nb. Chambres</option>
 		                            <option>1</option>
 		                            <option>2</option>
 		                            <option>3</option>
 		                            <option>4</option>
 		                            <option>5</option>
-		                          </select>
+		                          </form:select>
 		                        </div>
 		                      </div>
 		
 		                      <div class="form-group gbath">
 		                        <div class="label-select">
-		                          <select class="form-control">
+		                          <form:select path="bathrooms" class="form-control">
 		                            <option>Nb. Salles de bains</option>
 		                            <option>1</option>
 		                            <option>2</option>
 		                            <option>3</option>
 		                            <option>4</option>
-		                          </select>
+		                          </form:select>
 		                        </div>
 		                      </div>
 		
@@ -131,11 +85,12 @@
 		
 		                    <div class="gsearch-action">
 		                      <div class="gsubmit">
-		                        <a class="btn btn-info" href="#">Rechercher</a>
+		                        <button class="btn btn-info" type="submit">Rechercher</button>
 		                      </div>
 		                    </div>
 		                  </div>
-		                </form>
+		                </form:form>
+		                
 		              </div>
 		            </div>
 		          </div>
