@@ -90,16 +90,16 @@
 		                    </div> -->
 		                    
 		                    <div class="form-group">
-		                    	<label>Prix minimum (€)</label>
+		                    	<label>Prix minimum</label>
 		                    	<form:input path="min_price" class="inline-block form-control" type="number" value=""/>
-		                    	<label>Prix maximum (€)</label>
+		                    	<label>Prix maximum</label>
 		                    	<form:input path="max_price" class="inline-block form-control" type="number" value=""/>
 		                    </div>
 		                    
 		                    <div class="form-group">
-		                    	<label>Surface minimum (m²)</label>
+		                    	<label>Surface minimum</label>
 		                    	<form:input path="min_area" class="inline-block form-control" type="number" value=""/>
-		                    	<label>Surface maximum (m²)</label>
+		                    	<label>Surface maximum</label>
 		                    	<form:input path="max_area" class="inline-block form-control" type="number" value=""/>
 		                    </div>
 		

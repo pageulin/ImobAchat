@@ -63,7 +63,7 @@ public class SearchPropertyController {
 
         			  "'price': '" + announcement.getPrice() + "'," + "\n" +
 
-        			  "'url': 'property-details.html'," + "\n" +
+        			  "'url': 'actuality/" + announcement.getId() + "'," + "\n" +
 
         			  "'icon': 'resources/images/icon/marker-icon-coop.png' }";
         }
