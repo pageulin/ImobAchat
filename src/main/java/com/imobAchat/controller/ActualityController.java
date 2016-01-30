@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.imobAchat.dao.AnnouncementService;
 import com.imobAchat.dao.UserService;
 import com.imobAchat.model.Announcement;
@@ -36,6 +38,8 @@ public class ActualityController {
 		Collection<Announcement> announcements = as.findAll();
 		Collections.reverse((java.util.List<?>) announcements);
 		request.setAttribute("announcements", announcements);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", us.findUserById( ((User) session.getAttribute("user")).getId()));
 		return "actuality";
 	}
 	
@@ -62,7 +66,7 @@ public class ActualityController {
 			Announcement announcement = as.findById(id);
 			request.setAttribute("announcement", announcement);
 			session.setAttribute("announcement", announcement);
-			System.out.println(announcement);
+		
 		}
 		
 		
@@ -103,4 +107,5 @@ public class ActualityController {
 		
 		return "redirect:../../propertyDetails";
 	}
+	
 }

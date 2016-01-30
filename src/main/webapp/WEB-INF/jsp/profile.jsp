@@ -46,8 +46,28 @@
 		        <a onclick="changePassword()" class="btn btn-info margin-top-10px">Modifier</a>
 	        
 		        <!-- END NEW PASSWORD SECTION -->
+		
+		        <h3 class="margin-top-30px">Préférences</h3>
+			
+				<form:form commandName="updateSearch" action="updateSearch">
+					<label>Pays</label>
+			        <form:input path='country' type="text" value="${user.search.country}" class="form-control margin-top-10px"/>
+			
+			        <label>Chambres</label>
+			        <form:input path='bedrooms' type="text" value="${user.search.bedrooms}" class="form-control margin-top-10px"/>
+			        
+			        <label>Salle de bains</label>
+			        <form:input path='bathrooms' type="text" value="${user.search.bathrooms}" class="form-control margin-top-10px"/>
+			        
+			       <label>Prix max</label>
+			       <form:input path='max_price' type="text" value="${user.search.max_price}" class="form-control margin-top-10px"/>
+			       
+			       <label>Superficie minimum</label>
+			       <form:input path='min_area' type="text"  class="form-control margin-top-10px"/>
+			
+			        <button type="submit" class="btn btn-info margin-top-10px">Valider</button>
+	    		</form:form>
 
-		        <!-- START MY ANNOUNCEMENT SECTION -->
 		
 		        <h3 class="margin-top-30px">Mes annonces</h3>
 		        
@@ -86,7 +106,8 @@
 		    	</c:forEach>
 		
 		        <!-- END FAVORITE SECTION -->
-		
+
+		        		
 		      </div>
 		
 		    </div>

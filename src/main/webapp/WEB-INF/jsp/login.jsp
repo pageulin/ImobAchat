@@ -6,6 +6,13 @@
   <h1 class="align-center margin-top-30px">Connectez vous !</h1>
   
   <center id="index-content">
+  
+  	<form:form action="home" method="GET">
+            
+            <button type="submit" class="btn btn-info margin-top-10px">Commencer la navigation</button>
+            
+        </form:form>
+  
 	<form:form commandName="login">
 		<div id="login_section">
 		  <div id="mail_section" class="white-box width-25pc margin-top-30px">

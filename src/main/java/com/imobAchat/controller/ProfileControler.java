@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-import javax.xml.registry.infomodel.User;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.imobAchat.dao.AnnouncementService;
+import com.imobAchat.dao.SearchService;
 import com.imobAchat.dao.UserService;
 import com.imobAchat.model.Announcement;
+import com.imobAchat.model.Search;
+import com.imobAchat.model.User;
 
 @Controller
 public class ProfileControler {
@@ -27,9 +30,18 @@ public class ProfileControler {
 	@Autowired
 	private UserService us;
 	
+	@Autowired
+	private SearchService ss;
+	
 	@ModelAttribute("updateUser")
 	public com.imobAchat.model.User constructUser(){
 		return new com.imobAchat.model.User();
+	}
+	
+
+	@ModelAttribute("updateSearch")
+	public Search constructSearch(){
+		return new Search();
 	}
 	
 	@RequestMapping("/profile")
@@ -38,7 +50,23 @@ public class ProfileControler {
 		HttpSession session = request.getSession();
 		Collection<Announcement> announcements = as.findByUser((com.imobAchat.model.User)session.getAttribute("user"));
 		request.setAttribute("announcements", announcements);
+		session.setAttribute("user", us.findUserById( ((User) session.getAttribute("user")).getId()));
 		return "profile";
+	}
+	
+	
+	@RequestMapping(value = "/updateSearch", method=RequestMethod.POST)
+	@Transactional
+	public String Search(HttpServletRequest request, @ModelAttribute("updateSearch") Search s){
+
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+
+    
+        u.copySearch(s);
+        us.editUser(u);
+        session.setAttribute("user", u);
+        return "profile";
 	}
 	
 	@RequestMapping(value = "/updateUser", method=RequestMethod.POST)
@@ -69,8 +97,6 @@ public class ProfileControler {
 		HttpSession session = request.getSession();
 		com.imobAchat.model.User me = (com.imobAchat.model.User) session.getAttribute("user");
 		
-		System.out.println("pass :" + last_pass);
-		System.out.println("current_pass : " + me.getPassWord());
 		if(last_pass.equals(me.getPassWord())){
 			if(new_pass.equals(confirm)){
 				

@@ -53,18 +53,20 @@ public class AnnouncementDao implements AnnouncementDaoLocal{
 	@Override
 	public void delete(Announcement a) {
 		if(a!=null){
-			
-			
 			entityManager.remove( entityManager.merge(a));
-			System.out.println("removed : " + a);
-			
 		}
 		
 	}
 
 	@Override
 	public void deleteById(int id) {
-		entityManager.remove(entityManager.find(Announcement.class, id));
+		entityManager.remove(entityManager.merge(entityManager.find(Announcement.class, id)));
+		
+	}
+
+	@Override
+	public void edit(Announcement a) {
+		entityManager.merge(a);
 		
 	}
 	

@@ -18,12 +18,12 @@ public class Search {
 	public void setId(int id) {
 		this.id = id;
 	}
-	private int bedrooms;
-	private int bathrooms;
-	private int min_area;
-	private int max_area;
-	private int min_price;
-	private int max_price;
+	private int bedrooms = 0;
+	private int bathrooms = 0;
+	private int min_area = 0;
+	private int max_area = 0;
+	private int min_price = 0;
+	private int max_price = 0;
 	private String country;
 	
 	public String getCountry() {
@@ -77,4 +77,26 @@ public class Search {
 		this.max_price = max_price;
 	}
 	
+	public void cloneSearch(Search s){
+		s.bathrooms = this.bathrooms;
+		s.bedrooms = this.bedrooms;
+		s.country = this.country;
+		s.max_area = this.max_area;
+		s.min_area = this.min_area;
+		s.max_price = this.max_price;
+		s.min_price = this.min_price;
+		s.town = this.town;
+	}
+	
+	public String toString(){
+		return "Search : " + "\n" + 
+		"bedrooms : " + bedrooms + "\n" +
+		"bathrooms : " + bathrooms + "\n" +
+		"min_area : " + min_area + "\n" +
+		"max_area : "+ max_area + "\n" +
+		"min_price : "+ min_price + "\n" +
+		"max_price :"+ max_price + "\n" +
+		"country : "+ country + "\n";
+		
+	}
 }

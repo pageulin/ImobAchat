@@ -38,7 +38,7 @@
 		                      <a>Appartement</a>
 		                    </span>
 		                    <div class="property-detail">
-		                      <div class="size"><span>${announcement.area} m²</span>
+		                      <div class="size"><span>${announcement.area} m2</span>
 		                      </div>
 		                      <div class="bathrooms"><span>${announcement.bathrooms}</span>
 		                      </div>
@@ -55,7 +55,7 @@
 		                  <div class="property-summary">
 		                    <div class="property-info">
 		                      <div class="property-price">
-		                        <span><span class="amount">${announcement.price} €</span></span>
+		                        <span><span class="amount">${announcement.price} Euros</span></span>
 		                      </div>
 		                      <div class="property-action">
 		                        <a href="actuality/${announcement.id}">Voir plus</a>
@@ -79,5 +79,30 @@
 		    </div>
 		  </div>
 		</section>
+		
+		<section id="recent-properties-slider" class="wrap recent-properties recent-properties-slider">
+		  <div class="container">
+		
+		    <div class="recent-properties-inner">
+		      <div class="section-title">
+		        <h3>Annonces recommandées</h3>
+		      </div>
+		        
+		        <c:forEach var="announcement" items="${sessionScope.user.potentiallyInterestingAnnouncements}">
+					<div class='white-box margin-top-10px'>
+			            <div class='row'>
+			                <img class="col-md-4" src="resources/images/property/${announcement.pictures[0]}"/>
+			                <div class="col-md-8">
+			                    <b>${announcement.title}</b><br/>
+			                    <label class="color-888">${announcement.description}</label><br/>
+			                    <a href="actuality/${announcement.id}"><i>Voir plus</i></a>
+			                </div>
+			            </div>
+			        </div>
+		    	</c:forEach>
+		    </div>
+		  </div>
+	  </section>
+
 	</div>
 </body>

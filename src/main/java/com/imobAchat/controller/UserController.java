@@ -1,5 +1,8 @@
 package com.imobAchat.controller;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,18 +19,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.imobAchat.dao.UserService;
+import com.imobAchat.dao.NotificationService;
+import com.imobAchat.dao.SearchService;
 import com.imobAchat.dao.UserDao;
 import com.imobAchat.model.User;
+import com.imobAchat.model.Notification;
+import com.imobAchat.model.Search;
+
+import java.util.List;
 
 @Controller
-@Scope("session")
+@RequestMapping("/")
 public class UserController {
 
 	@Autowired
 	private UserService us;
 	
-	@EJB(name="UserDao")
-	private UserDao ud;
+	@Autowired
+	private NotificationService ns;
+
+	@Autowired
+	private SearchService ss;
+	
+	
+	@RequestMapping("/login")
+	public String getLogin(HttpServletRequest request , Model model){
+	
+		return "login";
+	}	
+	
+	@RequestMapping("/home")
+	public String home(HttpServletRequest request , Model model){
+	
+		return "redirect:searchProperty";
+	}	
 	
 	@ModelAttribute("registration")
 	public User constructRegistrationUser(){
@@ -66,6 +91,7 @@ public class UserController {
         HttpSession session = request.getSession();
         User u = us.findUserByEmail(user.getEmail());
         
+       
         if(u != null && user != null && u.getPassWord().equals(user.getPassWord())){
 	        session.setAttribute("user",u);
 	        return "redirect:searchProperty";
@@ -73,7 +99,8 @@ public class UserController {
         
         return "login";
 	}
-
+	
+	
 	@RequestMapping(value = "/index", method=RequestMethod.POST)
 	@Transactional
 	public String logout(HttpServletRequest request){
@@ -90,10 +117,31 @@ public class UserController {
 		return "registration";
 	}
 	
-	@RequestMapping("/login")
-	public String getLogin(Model model){
-		us.addUser(new User());
-		return "login";
+
+	@RequestMapping("/notification")
+	public String getNotification(HttpServletRequest request, Model model){
+		
+        HttpSession session = request.getSession();
+        User current_user = (User) session.getAttribute("user");
+        User u = us.findUserById(current_user.getId());
+        
+        List<Notification> lntmp = u.getNotifications();
+        List<Notification> lwntmp = u.getWaitingNotifications();
+        Iterator<Notification> ite = lwntmp.iterator();
+        while(ite.hasNext()){
+        	lntmp.add(ite.next());
+        }
+        
+        lwntmp.clear();
+        
+        us.editUser(u);
+        //Collection<com.imobAchat.model.Notification> list = u.getNotifications();
+        //for(com.imobAchat.model.Notification n : list)
+     	//  System.out.println("not : " + n.toString());
+        
+        //request.setAttribute("notifications", u.getNotifications());
+        session.setAttribute("user", u);
+		return "notification";
 	}
 	
 }

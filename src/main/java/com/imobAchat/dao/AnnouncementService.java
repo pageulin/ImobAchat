@@ -28,6 +28,13 @@ public class AnnouncementService {
 
 	@PostConstruct
 	public void init(){
+		User u = new User();
+		u.setEmail("test@gmail.com");
+		u.setPseudo("test");
+		u.setPassWord("test");
+		u.setLastName("lastName");
+		u.setFirstname("firstName");
+		
 		Announcement a = new Announcement();
 		a.setTitle("titre test");
 		a.setDescription("description test");
@@ -41,11 +48,7 @@ public class AnnouncementService {
 		a.setLongitude(2.3344796000000088);
 		a.setLatitude(48.856205);
 		a.addPicture("property6.jpg");
-		User u = new User();
-		u.setEmail("test@gmail.com");
-		u.setPseudo("test");
-		u.setLastName("lastName");
-		u.setFirstname("firstName");
+
 		a.setOwner(u);
 		uD.addUser(u);
 		aD.save(a);
@@ -174,6 +177,10 @@ public class AnnouncementService {
 	
 	public void save(Announcement a){
 		aD.save(a);
+	}
+	
+	public void edit(Announcement a){
+		aD.edit(a);
 	}
 	
 }

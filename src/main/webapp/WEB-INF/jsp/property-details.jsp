@@ -34,8 +34,8 @@
 						</div>
 		
 						<div class="col-md-6 align-left">
-							<p>${announcement.price} €</p>
-							<p>${announcement.area} m²</p>
+							<p>${announcement.price} Euros</p>
+							<p>${announcement.area} m2</p>
 							<p>${announcement.bedrooms}</p>
 							<p>${announcement.bathrooms}</p>
 						</div>

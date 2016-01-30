@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -142,9 +143,14 @@ public class Announcement {
 	
 	
 	public String toString(){
-		return "" +
-				title + "\n" +
-				description + "\n";
+		return "Announcement : " + "\n" +
+				"title : " + title + "\n" +
+				"description : " + description + "\n" +
+				"price : " + price + "\n" +
+				"bathrooms : " + bathrooms + "\n" +
+				"bedrooms : " + bedrooms + "\n" +
+				"area : " + area + "\n" +
+				"country : " + country + "\n";
 	}
 	
 }

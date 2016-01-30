@@ -18,6 +18,8 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.stereotype.Service;
 
 import com.imobAchat.model.Announcement;
+import com.imobAchat.model.Notification;
+import com.imobAchat.model.Search;
 import com.imobAchat.model.User;
 import com.imobAchat.repositories.UserRepository;
 
@@ -40,7 +42,7 @@ public class UserDao implements UserDaoLocal {
     }
     
     public void addUser(User u){  
-    	System.out.println("add : " + u);
+    	
 		entityManager.persist(u);
     }
 
@@ -66,8 +68,6 @@ public class UserDao implements UserDaoLocal {
 	}
 
 	public User findUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		//entityManager.createNativeQuery("SELECT id FROM user WHERE email=" + email);
 		Query requete = entityManager.createQuery(JPQL_SELECT_PAR_EMAIL); 
 		requete.setParameter(PARAM_USER, email); 
 		List<Integer> id_users = (List<Integer>)requete.getResultList();
@@ -75,6 +75,25 @@ public class UserDao implements UserDaoLocal {
 			return entityManager.find(User.class, id_users.get(0));
 		else
 			return null;
+		
+	}
+
+	public void notifyUsers(Announcement a) {
+		String findall = "SELECT * FROM User";
+		Query requete = entityManager.createNativeQuery(findall , User.class);
+		List<User> users = requete.getResultList();
+		Iterator<User> ite = users.iterator();
+		while(ite.hasNext()){
+			User u = ite.next();
+			if(u.isInterested(a)){
+				Notification tmp = new Notification();
+				tmp.setContent("Une annonce peut potentiellement vous intéresser !\n" + a.getTitle());
+				entityManager.persist(tmp);
+				u.addWaitingNotification(tmp);
+				u.addPotentiallyInterestingAnnouncement(a);
+				entityManager.merge(u);
+			}
+		}
 		
 	}
 

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.imobAchat.dao.AnnouncementService;
+import com.imobAchat.dao.UserService;
 import com.imobAchat.model.Announcement;
 
 @Controller
@@ -32,6 +33,9 @@ public class SubmitPropertyController {
 
 	@Autowired
 	private AnnouncementService as;
+	
+	@Autowired
+	private UserService us;
 	
     @Autowired
     ServletContext context;
@@ -59,6 +63,12 @@ public class SubmitPropertyController {
         }
     }
 	
+	@RequestMapping("/connect")
+	public String connect(HttpServletRequest request, Model model){
+		return "redirect:login";
+		
+	}
+	
 	@RequestMapping(value = "/submitProperty", method=RequestMethod.POST)
 	@Transactional
 	public String submitProperty(HttpServletRequest request, 
@@ -81,6 +91,8 @@ public class SubmitPropertyController {
 		}
 		
 		as.save(announcement);
+		
+		us.notifyUsers(announcement);
 
 		System.out.println("return");
 		return "redirect:searchProperty";

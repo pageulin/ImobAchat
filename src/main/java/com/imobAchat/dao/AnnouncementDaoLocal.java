@@ -16,5 +16,6 @@ public interface AnnouncementDaoLocal {
 	public Collection<Announcement> findByUser(User u);
 	public void delete(Announcement a);
 	public void deleteById(int id );
+	public void edit(Announcement a);
 	
 }

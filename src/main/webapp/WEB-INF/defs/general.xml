@@ -59,7 +59,12 @@
  		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/jsp/my-announcements.jsp" />   
     </definition>
-            
+
+ 	<definition name="notification" extends="common">
+ 		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/notification.jsp" />   
+    </definition>
+                
     <!-- ADMIN FILES -->
     <definition name="admin" extends="common">
     	<put-attribute name="header" value="/WEB-INF/jsp/adminHeader.jsp" />
