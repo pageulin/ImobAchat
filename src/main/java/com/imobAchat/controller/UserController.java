@@ -79,7 +79,7 @@ public class UserController {
         HttpSession session = request.getSession();
         session.setAttribute("user",user);
 
-		return "searchProperty";
+		return "redirect:searchProperty";
 	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
@@ -135,11 +135,7 @@ public class UserController {
         lwntmp.clear();
         
         us.editUser(u);
-        //Collection<com.imobAchat.model.Notification> list = u.getNotifications();
-        //for(com.imobAchat.model.Notification n : list)
-     	//  System.out.println("not : " + n.toString());
-        
-        //request.setAttribute("notifications", u.getNotifications());
+
         session.setAttribute("user", u);
 		return "notification";
 	}
